@@ -1,0 +1,14 @@
+﻿@model List<Order>
+
+<h1>List of orders: </h1>
+
+@foreach (var order in Model)
+{
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">@order.Id</div>
+        <div class="card-body">
+            <h5 class="card-title">@order.Name</h5>
+            <p class="card-text">$@order.Price</p>
+        </div>
+    </div>
+}

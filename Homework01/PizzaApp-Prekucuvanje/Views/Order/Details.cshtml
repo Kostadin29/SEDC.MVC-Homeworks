@@ -1,0 +1,21 @@
+﻿@model Order
+
+<h2>Order Details</h2>
+
+@if (Model != null)
+{
+
+
+    <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card-header">Order ID: @Model.Id</div>
+        <div class="card-body">
+            <h5 class="card-title">Customer Name: @Model.Name</h5>
+            <p class="card-text">Total Amount: $@Model.Price</p>
+        </div>
+    </div>
+    
+}
+else
+{
+    <p>Order not found.</p>
+}
