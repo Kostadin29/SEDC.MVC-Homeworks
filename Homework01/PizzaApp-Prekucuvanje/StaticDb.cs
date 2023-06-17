@@ -23,5 +23,14 @@ namespace PizzaApp_Prekucuvanje
                 ImageUrl = @"https://sipbitego.com/wp-content/uploads/2021/08/Pepperoni-Pizza-Recipe-Sip-Bite-Go.jpg"
             }
         };
+
+        public static List<Order> Orders = new List<Order>
+        {
+
+            new Order { Id = 1, Name = "John Doe", Price = 499 },
+            new Order { Id = 2, Name = "Mia Smith", Price = 349 },
+            new Order { Id = 3, Name = "Emilly Johnson", Price = 299 }
+
+        };
     }
 }
