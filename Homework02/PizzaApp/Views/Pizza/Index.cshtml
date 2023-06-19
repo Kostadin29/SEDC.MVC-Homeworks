@@ -1,0 +1,31 @@
+﻿@model List<PizzaViewModel>
+
+<h2>List of pizzas:</h2>
+<br />
+<div class="card-container">
+
+    @foreach (var pizza in @Model)
+    {
+        <div class="card text-white bg-danger mb-3" style="max-width: 18rem;">
+            <div class="card-header">Header</div>
+            <div class="card-body">
+                <h5 class="card-title">Name: @pizza.Name</h5>
+                @if (pizza.HasExtras)
+                {
+                    <p class="card-text">Price + Extras: (@pizza.Price + 10) </p>
+                }
+                else
+                {
+                    <p class="card-text">Price: @pizza.Price</p>
+                }
+
+                @foreach (var size in pizza.PizzaSizes)
+                {
+                    <p>@size</p>
+                }
+
+            </div>
+        </div>
+    }
+
+</div>

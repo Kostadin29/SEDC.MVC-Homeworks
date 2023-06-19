@@ -1,0 +1,9 @@
+﻿@model PizzaDetailsViewModel
+
+<h2>@Model.Name</h2>
+<img src="@Model.ImageUrl" style="width: 500px" />
+<p>Price: @Model.Price denars.</p>
+
+<br />
+
+<partial name="~/Views/Shared/Partials/_PizzaDetailsPartial.cshtml" for="@Model" />
