@@ -1,0 +1,37 @@
+﻿@model List<OrderDetailsViewModel>
+
+<h1>@ViewData["Title"]</h1>
+<br />
+<h2>Current date: @ViewData["Date"]</h2>
+
+<div class="container">
+    <div class="row">
+        @{
+            int orderNumber = 1;
+        }
+        @foreach (var order in @Model)
+        {
+            <div class="col-sm-4">
+                <div class="card mb-3">
+                    <div class="card-header text-white bg-info">
+                        Order number: @orderNumber
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Pizza in order: @order.PizzaName</li>
+                        <li class="list-group-item">Price of pizza in order: @order.Price</li>
+                        <li class="list-group-item">Order made by: @order.UserFullName</li>
+                        <li class="list-group-item">Payment method: @order.PaymentMethod</li>
+                    </ul>
+                </div>
+            </div>
+            orderNumber++;
+        }
+
+
+    </div>
+</div>
+
+<h3>System message: @ViewData["Message"]</h3>
+<br />
+<a class="btn btn-warning" asp-area="" asp-controller="Home" asp-action="Index">Home page</a>
+

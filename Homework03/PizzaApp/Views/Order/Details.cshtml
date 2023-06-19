@@ -1,0 +1,16 @@
+﻿@model OrderDetailsViewModel
+
+<h2>@ViewBag.Message</h2>
+
+
+<h4>Details about this user:</h4>
+<div class="card" style="width: 18rem;">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">PizzaName: @Model.PizzaName</li>
+        <li class="list-group-item">User full name: @Model.UserFullName</li>
+        <li class="list-group-item">Price: @Model.Price</li>
+        <li class="list-group-item">Payment Method: @Model.PaymentMethod</li>
+        <li class="list-group-item">Address: @Model.UserAddress</li>
+    </ul>
+</div>
+

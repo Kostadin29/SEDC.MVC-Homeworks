@@ -1,0 +1,23 @@
+﻿@model PizzaViewModel
+
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">Name: @Model.Name</h5>
+        @if (Model.HasExtras)
+        {
+            <p class="card-text">Price: @Model.Price + 10</p>
+        }
+        else
+        {
+            <p class="card-text">Price: @Model.Price</p>
+        }
+
+        @foreach (var size in Model.PizzaSizes)
+        {
+            <h5>Sizes: </h5>
+            <p>@size</p>
+        }
+    </div>
+    <br />
+</div>
+

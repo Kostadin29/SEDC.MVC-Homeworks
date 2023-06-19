@@ -1,0 +1,41 @@
+﻿@model PizzaViewModel
+
+@*<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Name: @Model.Name</h5>
+        @if (Model.HasExtras)
+        {
+            <p class="card-text">Price: @Model.Price + 10</p>
+        }
+        else
+        {
+            <p class="card-text">Price: @Model.Price</p>
+        }
+        <p class="card-text"></p>
+        @foreach (var size in Model.PizzaSizes)
+        {
+            <p class="card-text"> Sizes: @size</p>
+        }
+        <partial name="~/Views/Shared/Partials/_PartialPizzaInfo.cshtml"/>
+        @if (@Model.IsOnPromotion)
+        {
+            <h4 class="text-success">ON PROMOTION</h4>
+        }
+        else
+        {
+            <h4 class="text-danger">NOT ON PROMOTION</h4>
+        }
+    </div>*@
+<div class="card-container">
+
+    <partial name="~/Views/Shared/Partials/_PartialPizzaInfo.cshtml" />
+    @if (@Model.IsOnPromotion)
+    {
+        <h4 class="text-success">ON PROMOTION</h4>
+    }
+    else
+    {
+        <h4 class="text-danger">NOT ON PROMOTION</h4>
+    }
+
+</div>

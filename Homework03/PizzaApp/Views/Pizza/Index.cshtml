@@ -1,0 +1,15 @@
+﻿@model List<PizzaViewModel>
+
+<h2>List of pizzas:</h2>
+<br />
+
+<div class="card-container">
+
+    @foreach (var pizza in @Model)
+    {
+        <partial name="~/Views/Shared/Partials/_PartialPizzaInfo.cshtml" for="@pizza" />
+    }
+</div>
+
+
+

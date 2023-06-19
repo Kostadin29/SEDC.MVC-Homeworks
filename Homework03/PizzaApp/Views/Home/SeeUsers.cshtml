@@ -1,0 +1,23 @@
+﻿@model List<UserListViewModel> 
+
+<h2>List of users: </h2>
+<br />
+
+<div class="card-container">
+    @{
+        int userNumber = 1;
+    }
+    @foreach (var user in @Model)
+    {
+         <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h3> Users: @userNumber</h3>
+                <p>First Name: @user.FirstName</p>
+                <p>Last Name: @user.LastName</p>
+                <p>Phone number: @user.PhoneNumber</p>
+                <p>Address: @user.Address</p>
+                </div>
+                </div>
+        userNumber++;
+    }
+</div>
