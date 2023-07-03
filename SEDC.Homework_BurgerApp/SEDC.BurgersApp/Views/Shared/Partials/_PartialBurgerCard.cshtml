@@ -1,0 +1,14 @@
+﻿@model BurgerListViewModel
+
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="https://insanelygoodrecipes.com/wp-content/uploads/2020/02/Burger-and-Fries.jpg" 
+     alt="Card image cap">
+    <div class="card-body">
+        <h3 class="card-title">@Model.Name</h3>
+        <br />
+        <p class="text-black">Price: @Model.Price$</p>
+    </div>
+    <br />
+    <a type="button" class="btn btn-primary" asp-action="Details" asp-route-identifier="@Model.Id">Details</a>
+</div>
