@@ -1,20 +1,25 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BurgerApp.Services.Interfaces;
+using BurgerApp.ViewModels.HomeViewModels;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
 namespace BurgerApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private IBurgerService _burgerService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IBurgerService _burgerService)
         {
-            _logger = logger;
+            this._burgerService = _burgerService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            HomeViewModel homeViewModel = new HomeViewModel();
+
+            homeViewModel.BurgersOnPromotion = _burgerService.GetBurgersForPromotion();
+            return View(homeViewModel);
         }
 
         public IActionResult Privacy()

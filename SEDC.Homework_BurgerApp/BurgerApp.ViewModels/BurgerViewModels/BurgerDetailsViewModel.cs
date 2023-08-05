@@ -1,6 +1,6 @@
-﻿namespace BurgerApp.Domain.Models
+﻿namespace BurgerApp.ViewModels.BurgerViewModels
 {
-    public class Burger : BaseEntity
+    public class BurgerDetailsViewModel
     {
         public string Name { get; set; } = string.Empty;
         public int Price { get; set; }
@@ -9,7 +9,5 @@
         public bool HasFries { get; set; }
         public bool IsOnPromotion { get; set; }
         public string ImageUrl { get; set; } = string.Empty;
-        public List<BurgerOrder> BurgerOrders { get; set; } = new List<BurgerOrder>();
-
     }
 }

@@ -17,6 +17,24 @@ body {
   margin-bottom: 60px;
 }
 
-.card-container{
+.card-container {
     display: flex;
+}
+
+/*.card{
+    display: flex;
+    justify-content: center;
+}*/
+
+
+.text-center{
+    display: flex;
+    justify-content: center;
+}
+
+.center-image {
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+    height: 80vh; /* Adjust the height as needed */
 }

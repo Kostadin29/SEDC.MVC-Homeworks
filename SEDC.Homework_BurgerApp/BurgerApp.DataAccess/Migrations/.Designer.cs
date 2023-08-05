@@ -3,6 +3,7 @@ using BurgerApp.DataAccess.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurgerApp.DataAccess.Migrations
 {
     [DbContext(typeof(BurgerAppDbContext))]
-    partial class BurgerAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230721143606_AddedLocationModelv3")]
+    partial class AddedLocationModelv3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -35,9 +38,6 @@ namespace BurgerApp.DataAccess.Migrations
                     b.Property<string>("ImageUrl")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("IsOnPromotion")
-                        .HasColumnType("bit");
 
                     b.Property<bool>("IsVegan")
                         .HasColumnType("bit");
@@ -62,7 +62,6 @@ namespace BurgerApp.DataAccess.Migrations
                             Id = 1,
                             HasFries = true,
                             ImageUrl = "",
-                            IsOnPromotion = false,
                             IsVegan = false,
                             IsVegetarian = false,
                             Name = "Chicken Burger",
@@ -73,7 +72,6 @@ namespace BurgerApp.DataAccess.Migrations
                             Id = 2,
                             HasFries = false,
                             ImageUrl = "",
-                            IsOnPromotion = false,
                             IsVegan = false,
                             IsVegetarian = true,
                             Name = "Classic Veggie Burger",
@@ -84,7 +82,6 @@ namespace BurgerApp.DataAccess.Migrations
                             Id = 3,
                             HasFries = false,
                             ImageUrl = "",
-                            IsOnPromotion = false,
                             IsVegan = true,
                             IsVegetarian = false,
                             Name = "Portobello Mushroom Burger",
@@ -95,7 +92,6 @@ namespace BurgerApp.DataAccess.Migrations
                             Id = 4,
                             HasFries = true,
                             ImageUrl = "",
-                            IsOnPromotion = false,
                             IsVegan = false,
                             IsVegetarian = false,
                             Name = "Bacon Cheeseburger",
@@ -106,7 +102,6 @@ namespace BurgerApp.DataAccess.Migrations
                             Id = 5,
                             HasFries = true,
                             ImageUrl = "",
-                            IsOnPromotion = false,
                             IsVegan = true,
                             IsVegetarian = false,
                             Name = "Tofu Burger",

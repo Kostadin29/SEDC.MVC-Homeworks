@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BurgerApp.DataAccess.Migrations
 {
     [DbContext(typeof(BurgerAppDbContext))]
-    [Migration("20230627200948_initial")]
-    partial class initial
+    [Migration("20230802194834_AddedBurgerForPromotionProp")]
+    partial class AddedBurgerForPromotionProp
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,6 +33,13 @@ namespace BurgerApp.DataAccess.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<bool>("HasFries")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ImageUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsOnPromotion")
                         .HasColumnType("bit");
 
                     b.Property<bool>("IsVegan")
@@ -57,46 +64,56 @@ namespace BurgerApp.DataAccess.Migrations
                         {
                             Id = 1,
                             HasFries = true,
+                            ImageUrl = "",
+                            IsOnPromotion = false,
                             IsVegan = false,
                             IsVegetarian = false,
                             Name = "Chicken Burger",
-                            Price = 20
+                            Price = 3
                         },
                         new
                         {
                             Id = 2,
                             HasFries = false,
+                            ImageUrl = "",
+                            IsOnPromotion = false,
                             IsVegan = false,
                             IsVegetarian = true,
                             Name = "Classic Veggie Burger",
-                            Price = 39
+                            Price = 4
                         },
                         new
                         {
                             Id = 3,
                             HasFries = false,
+                            ImageUrl = "",
+                            IsOnPromotion = false,
                             IsVegan = true,
                             IsVegetarian = false,
                             Name = "Portobello Mushroom Burger",
-                            Price = 39
+                            Price = 6
                         },
                         new
                         {
                             Id = 4,
                             HasFries = true,
+                            ImageUrl = "",
+                            IsOnPromotion = false,
                             IsVegan = false,
                             IsVegetarian = false,
                             Name = "Bacon Cheeseburger",
-                            Price = 44
+                            Price = 7
                         },
                         new
                         {
                             Id = 5,
                             HasFries = true,
+                            ImageUrl = "",
+                            IsOnPromotion = false,
                             IsVegan = true,
                             IsVegetarian = false,
                             Name = "Tofu Burger",
-                            Price = 49
+                            Price = 5
                         });
                 });
 
@@ -152,7 +169,7 @@ namespace BurgerApp.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Location");
+                    b.ToTable("Locations");
 
                     b.HasData(
                         new
@@ -167,9 +184,9 @@ namespace BurgerApp.DataAccess.Migrations
                         {
                             Id = 2,
                             Address = "Vidoe Smilevski Bato 8",
-                            ClosesAt = "00:00",
+                            ClosesAt = "01:00",
                             Name = "Equilibrium",
-                            OpensAt = "09:00"
+                            OpensAt = "09:30"
                         });
                 });
 
@@ -205,10 +222,10 @@ namespace BurgerApp.DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Address = "Rilski Kongres 92",
-                            FullName = "Petko Petkovski",
+                            Address = "Metodija Sharotov Sharlo 23/1",
+                            FullName = "Stojadin Stojkov",
                             IsDelivered = false,
-                            LocationId = 1
+                            LocationId = 2
                         },
                         new
                         {
@@ -216,15 +233,15 @@ namespace BurgerApp.DataAccess.Migrations
                             Address = "Rilski Kongres 92",
                             FullName = "Petko Petkovski",
                             IsDelivered = false,
-                            LocationId = 2
+                            LocationId = 1
                         },
                         new
                         {
                             Id = 3,
-                            Address = "Rilski Kongres 92",
-                            FullName = "Petko Petkovski",
+                            Address = "Skopska Crna Gora",
+                            FullName = "Trajanka Mileva",
                             IsDelivered = false,
-                            LocationId = 2
+                            LocationId = 1
                         });
                 });
 

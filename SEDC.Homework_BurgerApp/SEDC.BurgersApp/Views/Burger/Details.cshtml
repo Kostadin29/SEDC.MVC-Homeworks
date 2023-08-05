@@ -1,0 +1,19 @@
+﻿@model BurgerDetailsViewModel
+
+<h2>Burger details: </h2>
+
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="@Model.ImageUrl" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">Price: @Model.Price $</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Is vegetarian: @Model.IsVegetarian</li>
+        <li class="list-group-item">Is vegan: @Model.IsVegan</li>
+        <li class="list-group-item">Has fries: @Model.HasFries</li>
+    </ul>
+</div>
+
+<br />
+<a class="btn btn-warning" asp-area="" asp-controller="Burger" asp-action="Index">Go back to the burgers</a>

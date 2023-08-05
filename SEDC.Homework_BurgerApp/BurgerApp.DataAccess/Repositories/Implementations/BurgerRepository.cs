@@ -8,22 +8,20 @@ namespace BurgerApp.DataAccess.Repositories.Implementations
     using Microsoft.EntityFrameworkCore;
 
 
-    public class BurgerRepository : IRepository<Burger>
+    public class BurgerRepository : IBurgerRepository
     {
         private BurgerAppDbContext _dbContext;
 
-        public BurgerRepository(BurgerAppDbContext dbContext)
+        public BurgerRepository(BurgerAppDbContext _dbContext)
         {
-            this._dbContext = dbContext;
+            this._dbContext = _dbContext;
         }
         public async Task<int> DeleteById(int id)
         {
-            Burger burgerDb = await _dbContext.Burgers.FirstOrDefaultAsync(b => b.Id == id);
+            Burger burgerDb = await _dbContext.Burgers.SingleOrDefaultAsync(x => x.Id == id);
 
             if (burgerDb == null)
-            {
-                throw new Exception($"Item with Id:{id} not found");
-            }
+                throw new Exception($"Item with Id:{id} not found!");
 
             _dbContext.Burgers.Remove(burgerDb);
             await _dbContext.SaveChangesAsync();
@@ -36,9 +34,21 @@ namespace BurgerApp.DataAccess.Repositories.Implementations
             return await _dbContext.Burgers.ToListAsync();
         }
 
+        //public Burger GetBurgerForPromotion()
+        //{
+        //    return _dbContext.Burgers.FirstOrDefault(x => x.IsOnPromotion == true);
+        //}
+
+        public List<Burger> GetBurgersOnPromotion()
+        {
+            // Replace this with your actual data retrieval logic to get burgers on promotion from your data source
+            // For example:
+            return _dbContext.Burgers.Where(burger => burger.IsOnPromotion).ToList();
+        }
+
         public async Task<Burger> GetById(int id)
         {
-            return await _dbContext.Burgers.FirstOrDefaultAsync(b => b.Id == id);
+            return await _dbContext.Burgers.SingleOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task Insert(Burger entity)
